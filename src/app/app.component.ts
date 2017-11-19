@@ -12,6 +12,7 @@ export class AppComponent {
   
    form1Enable: boolean;
    form2Enable: boolean;
+   
     constructor(private router: Router){
       this.form1Enable = true;
       this.form2Enable = false;

@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None
 })
 export class Form1Component implements OnInit {
-  formsEnable: any[] = [
+  /*formsEnable: any[] = [
     { id: 1, enabled: true },
     { id: 1, enabled: false }
-  ]
+  ]*/
+  form2Enable:boolean =true;
   constructor(private router: Router) {
 
   }
@@ -20,12 +21,13 @@ export class Form1Component implements OnInit {
 
     console.log("It works calling from the appcomponent form");
   }
-  submitForm(submission: any) {
+  submittingForm1(submission: any) {
 
+    this.form2Enable = false;
     console.log(submission);
-
-    this.formsEnable[1].enabled = false;
+    this.router.navigate(['/secondForm']);
+  /*  this.formsEnable[1].enabled = false;
     this.formsEnable[2].enabled = true;
-    //this.router.navigate(['/firstForm']);
+    this.router.navigate(['/firstForm']);*/
   }
 }

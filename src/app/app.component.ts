@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,11 +21,11 @@ export class AppComponent {
 
     submitForm(submission: any){
 
-      console.log(submission);
+      const preData = { field1: submission.data.field1, field2: submission.data.field2 };
       this.submission;
       this.form1Enable = false;
      // this.form2Enable = !this.form2Enable;
-      this.router.navigate(['/firstForm']);
+      this.router.navigate(['/firstForm'], { queryParams: preData });
     }
     
 }

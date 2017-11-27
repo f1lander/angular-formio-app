@@ -1,5 +1,6 @@
 import { Component, OnInit,Input,ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-form1',
@@ -12,9 +13,11 @@ export class Form1Component implements OnInit {
     { id: 1, enabled: true },
     { id: 1, enabled: false }
   ]*/
-  @Input() submission;
+  //@Input() submission;
+  private sub: any
+  preDataForm: Object;
   form2Enable:boolean =true;
-  constructor(private router: Router//,submission
+  constructor(private router: Router, private route: ActivatedRoute
   ) {
 /*console.log("the submission included is");
 console.log(submission);*/
@@ -22,8 +25,16 @@ console.log(submission);*/
  
   
   ngOnInit() {
+    this.sub = this.route
+    .queryParams
+    .subscribe(params => {
+        this.preDataForm = {data: params};
+    });
   }
 
+  ngOnDestroy(){
+    this.sub.unsubscribe();
+  }
   
   submittingForm1(submission: any) {
 

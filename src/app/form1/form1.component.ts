@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit,Input,ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,15 +12,19 @@ export class Form1Component implements OnInit {
     { id: 1, enabled: true },
     { id: 1, enabled: false }
   ]*/
+  @Input() submission;
   form2Enable:boolean =true;
-  constructor(private router: Router) {
-
+  constructor(private router: Router//,submission
+  ) {
+/*console.log("the submission included is");
+console.log(submission);*/
   }
-
+ 
+  
   ngOnInit() {
-
-    console.log("It works calling from the appcomponent form");
   }
+
+  
   submittingForm1(submission: any) {
 
     this.form2Enable = false;

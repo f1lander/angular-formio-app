@@ -10,21 +10,21 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
   
-   form1Enable: boolean;
-   form2Enable: boolean;
+   form1Enable: boolean= true;
+  submission;
    
     constructor(private router: Router){
-      this.form1Enable = true;
-      this.form2Enable = false;
+     // this.form1Enable = true;
+      //this.form2Enable = false;
     }
 
     submitForm(submission: any){
 
       console.log(submission);
-      
-      this.form1Enable = !this.form1Enable;
-      this.form2Enable = !this.form2Enable;
-      //this.router.navigate(['/firstForm']);
+      this.submission;
+      this.form1Enable = false;
+     // this.form2Enable = !this.form2Enable;
+      this.router.navigate(['/firstForm']);
     }
     
 }
